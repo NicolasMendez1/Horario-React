@@ -12,6 +12,7 @@ export default function SelectorDias({ blocks, onBlockToggle }) {
 
   return (
     <div className="overflow-x-auto">
+       <h3 className="text-lg font-bold mb-2">Bloques Disponibles</h3>
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr>
@@ -40,13 +41,19 @@ export default function SelectorDias({ blocks, onBlockToggle }) {
                   <button
                     type="button"
                     onClick={() => onBlockToggle(dayIndex, block)}
-                    className={`w-4 h-4 rounded-sm transition-colors ${
+                    className={`w-4 h-4 rounded-sm transition-colors    items-center justify-center ${
                       isBlockSelected(dayIndex, block)
                         ? 'bg-blue-500 hover:bg-blue-600'
                         : 'bg-gray-200 hover:bg-gray-300'
                     }`}
                     aria-label={`Bloque ${block}, ${DAYS[dayIndex]}`}
-                  />
+                  >
+                    {isBlockSelected(dayIndex, block) && (
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    )}
+                  </button>
                 </td>
               ))}
             </tr>

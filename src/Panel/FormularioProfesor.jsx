@@ -53,6 +53,19 @@ export default function FormularioProfesor({ onSubmit, profesores }) {
 		</div>
 	);
 
+	const InputEsFullTime = () => (
+		<div className="flex space-x-2">
+			<label htmlFor="esFullTime" className={estilo_label}>Es Full Time</label>
+			<input  
+				type="checkbox" 
+				id="esFullTime" 
+				checked={profesor.es_full_time} 
+				onChange={(e) => setProfesor({ ...profesor, es_full_time: e.target.checked })}
+				className="w-4 h-4" 
+			/>
+		</div>
+	);
+
 	/*
 	const InputBloquesDisponibles = () => (
 		<>
@@ -87,7 +100,8 @@ export default function FormularioProfesor({ onSubmit, profesores }) {
 		<form onSubmit={handleSubmit} className="space-y-4">
 			<InputCodigoProfesor />
 			<InputNombreProfesor />
-			<SelectorDias blocks={profesor.bloquesDisponibles} onBlockToggle={handleBlockToggle} />
+			<InputEsFullTime />
+			{!profesor.es_full_time ? <SelectorDias blocks={profesor.bloquesDisponibles} onBlockToggle={handleBlockToggle} /> : null}
 			<button type="submit" className={estilo_submit_button}>
 				Crear Profesor
 			</button>
