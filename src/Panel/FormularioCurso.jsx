@@ -10,6 +10,76 @@ export default function FormularioCurso({ onSubmit, cursos }) {
 		setCurso({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0 });
 	};
 
+	const estilo_text_input = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50";
+
+	const estilo_submit_button = "w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
+
+	const estilo_label = "block text-sm font-medium text-gray-700";
+
+	const InputCodigoCurso = () => {
+		return (
+			<div>
+				<label htmlFor="codigoCurso" className={estilo_label}>Código del Curso</label>
+				<input
+					type="text"
+					id="codigoCurso"
+					value={curso.codigoCurso}
+					onChange={(e) => setCurso({ ...curso, codigoCurso: e.target.value })}
+					className={estilo_text_input}
+					required
+					/>
+			</div>
+		);
+	}
+
+	const InputNombreCurso = () => {
+		return (
+			<div>
+			<label htmlFor="nombreCurso" className={estilo_label}>Nombre del Curso</label>
+			<input
+				type="text"
+				id="nombreCurso"
+				value={curso.nombreCurso}
+				onChange={(e) => setCurso({ ...curso, nombreCurso: e.target.value })}
+				className={estilo_text_input}
+				required
+				/>
+			</div>
+		);
+	}
+
+	const InputHorasCatedra = () => {
+		return (
+			<div>
+			<label htmlFor="horasCatedra" className={estilo_label}>Horas Cátedra</label>
+			<input
+				type="number"
+				id="horasCatedra"
+				value={curso.horasCatedra}
+				onChange={(e) => setCurso({ ...curso, horasCatedra: parseInt(e.target.value) })}
+				className={estilo_text_input}
+				required
+			/>
+			</div>
+		);
+	}
+
+	const InputHorasPractica = () => {
+		return (
+			<div>
+				<label htmlFor="horasPractica" className={estilo_label}>Horas Práctica</label>
+				<input
+					type="number"
+					id="horasPractica"
+					value={curso.horasPractica}
+					onChange={(e) => setCurso({ ...curso, horasPractica: parseInt(e.target.value) })}
+					className={estilo_text_input}
+					required
+				/>
+			</div>
+		);
+	}
+
 	return (
 		<div>
 			<div className="mb-4">
@@ -28,51 +98,11 @@ export default function FormularioCurso({ onSubmit, cursos }) {
 			</div>
 			{modo === 'crear' ? (
 				<form onSubmit={handleSubmit} className="space-y-4">
-					<div>
-						<label htmlFor="codigoCurso" className="block text-sm font-medium text-gray-700">Código del Curso</label>
-						<input
-							type="text"
-							id="codigoCurso"
-							value={curso.codigoCurso}
-							onChange={(e) => setCurso({ ...curso, codigoCurso: e.target.value })}
-							className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-							required
-						/>
-					</div>
-					<div>
-						<label htmlFor="nombreCurso" className="block text-sm font-medium text-gray-700">Nombre del Curso</label>
-						<input
-							type="text"
-							id="nombreCurso"
-							value={curso.nombreCurso}
-							onChange={(e) => setCurso({ ...curso, nombreCurso: e.target.value })}
-							className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-							required
-						/>
-					</div>
-					<div>
-						<label htmlFor="horasCatedra" className="block text-sm font-medium text-gray-700">Horas Cátedra</label>
-						<input
-							type="number"
-							id="horasCatedra"
-							value={curso.horasCatedra}
-							onChange={(e) => setCurso({ ...curso, horasCatedra: parseInt(e.target.value) })}
-							className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-							required
-						/>
-					</div>
-					<div>
-						<label htmlFor="horasPractica" className="block text-sm font-medium text-gray-700">Horas Práctica</label>
-						<input
-							type="number"
-							id="horasPractica"
-							value={curso.horasPractica}
-							onChange={(e) => setCurso({ ...curso, horasPractica: parseInt(e.target.value) })}
-							className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-							required
-						/>
-					</div>
-					<button type="submit" className="w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+					<InputCodigoCurso />
+					<InputNombreCurso />
+					<InputHorasCatedra />
+					<InputHorasPractica />
+					<button type="submit" className={estilo_submit_button}>
 						Crear Curso
 					</button>
 				</form>
