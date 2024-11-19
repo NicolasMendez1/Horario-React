@@ -16,6 +16,18 @@ export default function FormularioCurso({ onSubmit, cursos }) {
 
 	const estilo_label = "block text-sm font-medium text-gray-700";
 
+	const CreadorCurso = () => {
+		return (
+			<form onSubmit={handleSubmit} className="space-y-4">
+				<InputCodigoCurso />
+				<InputNombreCurso />
+				<InputHorasCatedra />
+				<InputHorasPractica />
+				<button type="submit" className={estilo_submit_button}>Crear Curso</button>
+			</form>
+		);
+	}
+
 	const InputCodigoCurso = () => {
 		return (
 			<div>
@@ -80,36 +92,38 @@ export default function FormularioCurso({ onSubmit, cursos }) {
 		);
 	}
 
+	const SelectorModo = () => {
+		const estilo_boton_crear = `mr-2 px-4 py-2 ${modo === 'crear' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`;
+		const estilo_boton_listado = `px-4 py-2 ${modo === 'listado' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`;
+
+		return (
+			<div className="mb-4">
+				<button className={estilo_boton_crear} onClick={() => setModo('crear')}>Crear</button>
+				<button className={estilo_boton_listado} onClick={() => setModo('listado')}>Listado</button>
+			</div>
+		);
+	}
+
+
+	const ListadoCursos = () => {
+		return (
+			<ul className="space-y-2">
+				{cursos.map((c, index) => (
+					<li key={index} className="bg-white p-4 rounded-md shadow">
+						<h3 className="font-bold">{c.nombreCurso}</h3>
+					</li>
+				))}
+			</ul>
+		);
+	}
+
 	return (
 		<div>
-			<div className="mb-4">
-				<button
-					className={`mr-2 px-4 py-2 ${modo === 'crear' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-					onClick={() => setModo('crear')}
-				>
-					Crear
-				</button>
-				<button
-					className={`px-4 py-2 ${modo === 'listado' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-					onClick={() => setModo('listado')}
-				>
-					Listado
-				</button>
-			</div>
+			<SelectorModo />
 			{modo === 'crear' ? (
-				<form onSubmit={handleSubmit} className="space-y-4">
-					<InputCodigoCurso />
-					<InputNombreCurso />
-					<InputHorasCatedra />
-					<InputHorasPractica />
-					<button type="submit" className={estilo_submit_button}>
-						Crear Curso
-					</button>
-				</form>
+				<CreadorCurso />
 			) : (
-				<ul className="space-y-2">
-					{}
-				</ul>
+				<ListadoCursos />
 			)}
 		</div>
 	);
