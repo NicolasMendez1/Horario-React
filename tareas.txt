@@ -1,0 +1,3 @@
+- hacer que en las horas no se puedan poner horas negativas
+- reconsiderar el atributo es atemporal en el curso, ya que se puede deducir por el nivel,
+y si lo mantenemos cada semestre habría que actualizarlo

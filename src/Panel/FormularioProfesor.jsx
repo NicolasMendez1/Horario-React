@@ -54,7 +54,7 @@ export default function FormularioProfesor({ onSubmit, profesores }) {
 	);
 
 	const InputEsFullTime = () => (
-		<div className="flex space-x-2">
+		<div className="flex space-x-2 items-center">
 			<label htmlFor="esFullTime" className={estilo_label}>Es Full Time</label>
 			<input  
 				type="checkbox" 

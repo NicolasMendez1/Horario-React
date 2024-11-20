@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 export default function FormularioCurso({ onSubmit, cursos }) {
 	const [modo, setModo] = useState('crear');
-	const [curso, setCurso] = useState({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0 });
+	const [curso, setCurso] = useState({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0, nivel: 0 });
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		//onSubmit(curso);
-		setCurso({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0 });
+		setCurso({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0, nivel: 0 });
 	};
 
 	const estilo_text_input = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50";
@@ -23,6 +23,7 @@ export default function FormularioCurso({ onSubmit, cursos }) {
 				<InputNombreCurso />
 				<InputHorasCatedra />
 				<InputHorasPractica />
+				<InputNivel />
 				<button type="submit" className={estilo_submit_button}>Crear Curso</button>
 			</form>
 		);
@@ -92,6 +93,21 @@ export default function FormularioCurso({ onSubmit, cursos }) {
 		);
 	}
 
+	const InputNivel = () => {
+		return (
+			<div>
+				<label htmlFor="nivel" className={estilo_label}>Nivel</label>
+				<input
+					type="number"
+					id="nivel"
+					value={curso.nivel}
+					onChange={(e) => setCurso({ ...curso, nivel: parseInt(e.target.value) })}
+					className={estilo_text_input}
+					required
+				/>
+			</div>
+		);
+	}
 	const SelectorModo = () => {
 		const estilo_boton_crear = `mr-2 px-4 py-2 ${modo === 'crear' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`;
 		const estilo_boton_listado = `px-4 py-2 ${modo === 'listado' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`;
