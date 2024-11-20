@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SelectorDias from './SelectorDias';
+import SelectorDias from './UI/SelectorDias';
 
 export default function FormularioProfesor({ onSubmit, profesores }) {
 	const [modo, setModo] = useState('crear');

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PanelCurso from './Curso/PanelCurso';
-import FormularioProfesor from './FormularioProfesor';
-import FormularioSala from './FormularioSala';
-import FormularioSeccion from './FormularioSeccion';
+import PanelProfesor from './Profesor/PanelProfesor';
+import PanelSala from './Sala/PanelSala';
+import PanelSeccion from './Seccion/PanelSeccion';
 
 function Panel() {
 	const [activeTab, setActiveTab] = useState('cursos');
@@ -33,18 +33,18 @@ function Panel() {
 					onClick={() => setActiveTab('profesores')}
 				>
 					Profesores
-				</button>				<button
+				</button>
+				<button
 					className={`px-3 py-2 rounded ${activeTab === 'secciones' ? 'bg-indigo-600 text-white' : 'bg-gray-200'}`}
 					onClick={() => setActiveTab('secciones')}
 				>
 					Secciones
-				</button>	
+				</button>
 			</div>
 			{activeTab === 'cursos' && <PanelCurso onSubmit={handleSubmit} />}
-			{activeTab === 'salas' && <FormularioSala onSubmit={handleSubmit} />}
-			{activeTab === 'profesores' && <FormularioProfesor onSubmit={handleSubmit} />}
-			{activeTab === 'secciones' && <FormularioSeccion onSubmit={handleSubmit} />}
-
+			{activeTab === 'salas' && <PanelSala onSubmit={handleSubmit} />}
+			{activeTab === 'profesores' && <PanelProfesor onSubmit={handleSubmit} />}
+			{activeTab === 'secciones' && <PanelSeccion onSubmit={handleSubmit} />}
 		</div>
 	);
 }
