@@ -1,4 +1,4 @@
-import Seccion from "../Horario/Seccion";
+import Seccion from "../../Horario/Seccion";
 const cursos = [
     { codigo_curso: "INF-113", curso: "Introduccion a la Computación 1", sala: "Sala 1-108", profesor: "Hugo Araya" },
     { codigo_curso: "INF-114", curso: "Programación 1", sala: "Sala 1-145", profesor: "Pedro Perez" },

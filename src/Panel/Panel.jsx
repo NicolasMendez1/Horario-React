@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FormularioCurso from './FormularioCurso';
+import PanelCurso from './Curso/PanelCurso';
 import FormularioProfesor from './FormularioProfesor';
 import FormularioSala from './FormularioSala';
 import FormularioSeccion from './FormularioSeccion';
@@ -40,7 +40,7 @@ function Panel() {
 					Secciones
 				</button>	
 			</div>
-			{activeTab === 'cursos' && <FormularioCurso onSubmit={handleSubmit} />}
+			{activeTab === 'cursos' && <PanelCurso onSubmit={handleSubmit} />}
 			{activeTab === 'salas' && <FormularioSala onSubmit={handleSubmit} />}
 			{activeTab === 'profesores' && <FormularioProfesor onSubmit={handleSubmit} />}
 			{activeTab === 'secciones' && <FormularioSeccion onSubmit={handleSubmit} />}
