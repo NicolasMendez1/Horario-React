@@ -2,3 +2,21 @@
 - reconsiderar el atributo es atemporal en el curso, ya que se puede deducir por el nivel,
 y si lo mantenemos cada semestre habría que actualizarlo
 - recuperar el input en el formulario de seccion que listaba los profesores,cursos y salas
+
+
+- poder seleccionar una seccion y añadirla al horario
+- conectar los fomrularios con los repositorios, y hacer que los listados se suscriben a los repositorios
+- que los selectores consuman a los repositorios de cursos, profesores y salas
+
+
+
+
+
+
+
+
+
+
+# Preguntas para el cliente sobre requerimientos
+-las secciones tinen las mismas cantidad de estudiantes?
+

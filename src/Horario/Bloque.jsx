@@ -1,8 +1,6 @@
 // Bloque.js
 import React, { useState } from 'react';
 import ElementoAgregado from './ElementoAgregado';  // Importamos el nuevo componente
-import { Draggable, Droppable } from '@hello-pangea/dnd';
-import test from '../Estado/testeo';
 
 function Bloque({ dia, bloque }) {
 	const [elementosAgregados, setElementosAgregados] = useState([]);
