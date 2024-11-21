@@ -7,8 +7,11 @@ export default function FormularioSeccion() {
         numeroSeccion: 0,
         codigoCurso: '',
         bloques: [],
-        codigoSala: '',
-        codigoProfesor: ''
+        codigoSalaCatedra: '',
+        codigoProfesor: '',
+        codigoSalaLaboratorio: '',
+        cantidadEstudiantes: 0,
+
     });
     
     const estilo_submit_button = "w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
@@ -20,8 +23,10 @@ export default function FormularioSeccion() {
             numeroSeccion: 0,
             codigoCurso: '',
             bloques: [],
-            codigoSala: '',
-            codigoProfesor: ''
+            codigoSalaCatedra: '',
+            codigoProfesor: '',
+            codigoSalaLaboratorio: '',
+            cantidadEstudiantes: 0,
         });
     };
 
@@ -40,15 +45,27 @@ export default function FormularioSeccion() {
                 required={true}
             />
             <InputText
-                label="Código de Sala"
-                value={seccion.codigoSala}
-                onChange={(newValue) => setSeccion({ ...seccion, codigoSala: newValue })}
-                required={true}
-            />
-            <InputText
                 label="Código del Profesor"
                 value={seccion.codigoProfesor}
                 onChange={(newValue) => setSeccion({ ...seccion, codigoProfesor: newValue })}
+                required={true}
+            />
+            <InputText
+                label="Código de Sala de Cátedra"
+                value={seccion.codigoSalaCatedra}
+                onChange={(newValue) => setSeccion({ ...seccion, codigoSalaCatedra: newValue })}
+                required={true}
+            />
+            <InputText
+                label="Código de Sala de Laboratorio"
+                value={seccion.codigoSalaLaboratorio}
+                onChange={(newValue) => setSeccion({ ...seccion, codigoSalaLaboratorio: newValue })}
+                required={true}
+            />
+            <InputNumerico
+                label="Cantidad de Estudiantes"
+                value={seccion.cantidadEstudiantes}
+                onChange={(newValue) => setSeccion({ ...seccion, cantidadEstudiantes: newValue })}
                 required={true}
             />
             <button type="submit" className={estilo_submit_button}>Crear Sección</button>

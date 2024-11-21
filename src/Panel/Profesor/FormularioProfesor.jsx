@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InputText from '../UI/InputTexto';
+import InputCheckBox from '../UI/InputCheckBox';
 import SelectorDias from '../UI/SelectorDias';
 
 export default function FormularioProfesor() {
@@ -44,15 +45,11 @@ export default function FormularioProfesor() {
                 onChange={(newValue) => setProfesor({ ...profesor, nombreProfesor: newValue })}
                 required={true}
             />
-            <div className="flex space-x-2 items-center">
-                <label className="block text-sm font-medium text-gray-700">Es Full Time</label>
-                <input
-                    type="checkbox"
-                    checked={profesor.es_full_time}
-                    onChange={(e) => setProfesor({ ...profesor, es_full_time: e.target.checked })}
-                    className="w-4 h-4"
-                />
-            </div>
+            <InputCheckBox
+                label="Es Full Time"
+                checked={profesor.es_full_time}
+                onChange={(newValue) => setProfesor({ ...profesor, es_full_time: newValue })}
+            />
             {!profesor.es_full_time && (
                 <SelectorDias 
                     blocks={profesor.bloquesDisponibles} 
